@@ -65,18 +65,21 @@ endif()
 # Set the project, Mbed TLS and framework root directory.
 set(TF_PSA_CRYPTO_FRAMEWORK_DIR ${CMAKE_CURRENT_SOURCE_DIR}/framework)
 
-# Put the version numbers into relevant files
-set(version_number_files
-        doxygen/input/doc_mainpage.h
-        doxygen/tfpsacrypto.doxyfile)
-foreach(file ${version_number_files})
-    configure_file(${file}.in
-                   ${PROJECT_SOURCE_DIR}/${file})
-endforeach(file)
+if(NOT TF_PSA_CRYPTO_AS_SUBPROJECT)
+    # Put the version numbers into relevant files
+    set(version_number_files
+            doxygen/input/doc_mainpage.h
+            doxygen/tfpsacrypto.doxyfile)
+    foreach(file ${version_number_files})
+        configure_file(${file}.in
+                       ${PROJECT_SOURCE_DIR}/${file})
+    endforeach(file)
 
-ADD_CUSTOM_TARGET(${TF_PSA_CRYPTO_TARGET_PREFIX}tfpsacrypto-apidoc
-    COMMAND doxygen tfpsacrypto.doxyfile
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doxygen)
+    ADD_CUSTOM_TARGET(${TF_PSA_CRYPTO_TARGET_PREFIX}tfpsacrypto-apidoc
+        COMMAND doxygen tfpsacrypto.doxyfile
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doxygen)
+
+endif()
 
 option(ENABLE_PROGRAMS "Build TF-PSA-Crypto programs." ON)
 
