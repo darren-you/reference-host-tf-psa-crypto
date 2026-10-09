@@ -1,0 +1,16 @@
+{
+  "upstream_repository": "https://github.com/Mbed-TLS/TF-PSA-Crypto",
+  "upstream_commit": "29160dd877d29658279fd683b2ae57b320ddcf09",
+  "purpose": "ESP FRP host Mbed TLS 4.1.0 完整发布配置与生成文件；清理实际 Actions 子来源，不改变 PSA 库源",
+  "official_source_archive_sha256": "377a09cf8eb81b5fb2707045e5522d5489d3309fed5006c9874e60558fc81d10",
+  "source_dependencies": [
+    {
+      "path": "drivers/pqcp/mldsa-native",
+      "repository": "https://github.com/darren-you/reference-host-mldsa-native.git",
+      "commit": "e1c34d7520448e58f556b351ebbbefed6821f4b3",
+      "upstream_repository": "https://github.com/Mbed-TLS/mldsa-native",
+      "upstream_commit": "5772b4f4a0105694b1203abb582273f78fa951b7"
+    }
+  ],
+  "source_issue": "https://github.com/darren-you/darren-space/issues/64"
+}

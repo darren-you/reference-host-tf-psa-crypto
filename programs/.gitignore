@@ -9,6 +9,6 @@ psa/psa_hash
 test/benchmark
 test/which_aes
 
-###START_GENERATED_FILES###
-# Generated source files
-psa/psa_constant_names_generated.c
+####START_COMMENTED_GENERATED_FILES###
+## Generated source files
+#psa/psa_constant_names_generated.c
